@@ -34,6 +34,7 @@ public class BlogController {
 		BlogVo blogVo = blogService.showBlog(id);
 		List<CategoryVo> categoryList = categoryService.showCategoryService(id);
 		
+		System.out.println("test");
 		
 		model.addAttribute("blog", blogVo);
 		model.addAttribute("category", categoryList);
