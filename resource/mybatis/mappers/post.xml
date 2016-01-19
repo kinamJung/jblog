@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="post">
+
+	<insert id="insert" parameterType="PostVo">
+		<![CDATA[
+			INSERT INTO POST(NO, TITLE, CONTENT, REG_DATE, CATEGORY_NO) VALUES(POST_SEQ.nextval, #{title},#{content}, SYSDATE, #{categoryNo})
+		]]>
+	</insert>
+
+	<select id="getCount" resultType="CategoryPostCntDTO"  parameterType="CategoryVo">
+		<![CDATA[
+			select CATEGORY_NO as categoryNo, COUNT (*) as postCount from post group by CATEGORY_NO
+		]]>
+	</select>
+
+
+</mapper>

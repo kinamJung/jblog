@@ -76,11 +76,11 @@
 			<bean class="com.hanains.jblog.interceptor.AuthLoginInBlogInterceptor" />
 		</mvc:interceptor>
 
-<!-- 		<mvc:interceptor>
+ 		<mvc:interceptor>
 
 			<mvc:mapping path="/**" /> 
 			<bean class="com.hanains.jblog.interceptor.AuthInterceptor" />
-		</mvc:interceptor> -->
+		</mvc:interceptor>
 	</mvc:interceptors> 
 
 </beans>

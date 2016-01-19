@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.hanains.jblog.dao.BlogDao;
+import com.hanains.jblog.dao.CategoryDao;
 import com.hanains.jblog.dao.MemberDao;
 import com.hanains.jblog.vo.BlogVo;
+import com.hanains.jblog.vo.CategoryVo;
 import com.hanains.jblog.vo.MemberVo;
 
 
@@ -20,6 +22,9 @@ public class MemberService {
 	
 	@Autowired
 	private BlogDao blogDao;
+	
+	@Autowired 
+	CategoryDao categoryDao;
 	
 	public MemberVo login(MemberVo vo) {
 		MemberVo memberVo = memberDao.getMember(vo);
@@ -37,6 +42,7 @@ public class MemberService {
 		
 		memberDao.insertMember(vo);			
 		blogDao.insert(blogVo);
+		categoryDao.insert(blogVo);
 	}
 	
 	public List<MemberVo> showUserList(){

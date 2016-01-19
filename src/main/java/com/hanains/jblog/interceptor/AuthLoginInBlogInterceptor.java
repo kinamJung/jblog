@@ -20,7 +20,7 @@ public class AuthLoginInBlogInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-				
+		String blogId = request.getParameter("blogID");
 		MemberVo vo = new MemberVo();
 		vo.setId(id);
 		vo.setPassword(password);
@@ -35,14 +35,11 @@ public class AuthLoginInBlogInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession(true);
 		session.setAttribute("user", member);
 		
-		response.sendRedirect(request.getContextPath()+"/blog/"+member.getId());
+		response.sendRedirect(request.getContextPath()+"/blog/"+blogId);
 		
 		return false;
 	
 	}
 
-	
-	
-	
 	
 }

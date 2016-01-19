@@ -27,4 +27,9 @@ public class BlogDao {
 		return blogVo;
 	}
 	
+	public void update(BlogVo vo){
+		System.out.println("update:" + vo);
+		sqlSession.update("blog.update",vo);
+	}
+	
 }

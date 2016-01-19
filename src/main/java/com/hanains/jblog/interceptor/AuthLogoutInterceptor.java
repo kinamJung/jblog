@@ -16,12 +16,14 @@ public class AuthLogoutInterceptor extends HandlerInterceptorAdapter {
 		
 		HttpSession session = request.getSession();
 		
+		String blogId = request.getParameter("blogId");
+		
 		if(session != null){
 			session.removeAttribute("user");
 			session.invalidate();
 		}
 		
-		response.sendRedirect(request.getContextPath()+"/");
+		response.sendRedirect(request.getContextPath()+"/blog/"+blogId);
 		
 		
 		return false;

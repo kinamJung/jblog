@@ -11,7 +11,7 @@
 </head>
 <body background="${pageContext.request.contextPath}/images/kubrickbgcolor.jpg">
 <center>
-	<table background="${pageContext.request.contextPath}/images/kubrickheader.jpg"
+<%-- 	<table background="${pageContext.request.contextPath}/images/kubrickheader.jpg"
 		 width="760" height="200" border="0" cellpadding="0" cellspacing="0">
       <tr>	<td height="60">&nbsp;</td></tr>
       <!-- 블로그 제목과 태그 시작 -->
@@ -19,7 +19,8 @@
       <tr>	<td height="20" class="blogtag">${blog.tags}</td></tr>
       <!-- 블로그 제목과 태그 끝 -->      
       <tr>	<td height="60">&nbsp;</td></tr>
-    </table>
+    </table> --%>
+	<c:import url="/WEB-INF/views/include/header.jsp"/>
     <table background="${pageContext.request.contextPath}/images/kubrickbg.jpg" width="760" height="300" border="0" cellpadding="0" cellspacing="0">
       <tr><td height="10">&nbsp;</td></tr>
       <tr>
@@ -45,20 +46,21 @@
       		<tr><td>
       		<c:choose>
       			<c:when test="${ empty user }">
-      				<a href="${pageContext.request.contextPath}/blog/loginformInblog?blogId=${blog.id}">로그인</a>&nbsp;&nbsp;
+      				<a href="${pageContext.request.contextPath}/blog/loginformInblog?blogID=${blog.id}">로그인</a>&nbsp;&nbsp;
       			</c:when> 
       			<c:otherwise>
-      				<a href="blogadmin_basic.jsp">블로그 관리</a></td></tr>
+      				<c:if test="${ blog.id eq user.id }">
+      					<a href="${pageContext.request.contextPath}/blog/admin?&blogID=${blog.id}">블로그 관리</a></td></tr>
+      				</c:if>
       			</c:otherwise>
       		</c:choose>
       		<tr><td height="5">&nbsp;</td></tr>
       		<tr><td><img height="80" src="${pageContext.request.contextPath}/images/j2eelogo.jpg" border="0"></td></tr>
       		<tr><td height="5">&nbsp;</td></tr>
       		<tr><td class="categorytitle">카테고리</td></tr>
-      		<tr><td class="categoryitem"><a class="title" href="#">자바</a></td></tr>
-      		<tr><td class="categoryitem"><a class="title" href="#">J2EE</a></td></tr>
-      		<tr><td class="categoryitem"><a class="title" href="#">소프트웨어 엔지니어링</a></td></tr>
-      		<tr><td class="categoryitem"><a class="title" href="#">미분류</a></td></tr>
+      		<c:forEach items="${category}" var="cate">
+      			<tr><td class="categoryitem"><a class="title" href="#">${cate.name}</a></td></tr>
+      		</c:forEach>
       		<tr><td height="5">&nbsp;</td></tr>
       		<tr><td align="center"><img width="80" src="${pageContext.request.contextPath}/images/logo.jpg" border="0"></td></tr>
       	</table>

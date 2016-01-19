@@ -8,17 +8,25 @@
 			INSERT INTO BLOG(ID, TITLE, STATUS, TAGS) VALUES( #{id}, #{title}, #{status}, #{tags} )
 		]]>
 	</insert>
-	
+
 	<select id="get" parameterType="MemberVo" resultType="BlogVo">
 		<![CDATA[
 			select id, title, status, tags from blog where id = #{id}
-		]]>	
+		]]>
 	</select>
 
-		<select id="getById" parameterType="String" resultType="BlogVo">
+	<select id="getById" parameterType="String" resultType="BlogVo">
 		<![CDATA[
 			select id, title, status, tags from blog where id = #{id}
-		]]>	
+		]]>
 	</select>
+
+	<update id="update" parameterType="BlogVo" >
 	
+		<![CDATA[
+			update blog set title = #{title}, tags=#{tags} where id =#{id}
+		]]>
+
+	</update>
+
 </mapper>

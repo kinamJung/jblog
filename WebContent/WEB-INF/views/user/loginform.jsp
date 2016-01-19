@@ -10,7 +10,7 @@
 </head>
 <body>
 <form method="post" action="${pageContext.request.contextPath}/blog/login">		
-	<input type="hidden" name="blogId" value="${blogId}" >
+	<input type="hidden" name="blogID" value="${blogID}" >
     <table width="100%" height=320 border="0" cellpadding="0" cellspacing="0">
       <tr>
       	<td height=40 colspan="10">&nbsp;</td>
