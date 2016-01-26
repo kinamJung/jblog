@@ -2,12 +2,14 @@ package com.hanains.jblog.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.hanains.jblog.vo.BlogVo;
 import com.hanains.jblog.vo.MemberVo;
 
 @Repository
+@Profile("dev") // profile 적용
 public class BlogDao {
 
 	@Autowired

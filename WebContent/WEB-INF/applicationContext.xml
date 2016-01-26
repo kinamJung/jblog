@@ -15,7 +15,11 @@
     http://www.springframework.org/schema/task
     http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
-	<context:annotation-config />
+<!-- 	<context:annotation-config /> -->
+<!-- 
+		<context:component-scan> 태그는 빈 스캐너 기능을 제공할 뿐만 아니라 <context:annotation-config />에 의해 등록되는 빈들도 등록 해주기 때문에
+		 <context:component-scan>하나로 줄여도 된다.
+ -->
 	<aop:aspectj-autoproxy/>
 
 	<context:component-scan base-package="com.hanains.jblog">
@@ -26,6 +30,7 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
+
 
 	<!-- oracle datasource -->
 	<bean id="oracleDatasource" class="oracle.jdbc.pool.OracleDataSource"
